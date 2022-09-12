@@ -1,0 +1,42 @@
+export const projectsdata = [
+  {
+    id: 2234001,
+    name: "Bridge Construction",
+    manager: "Ram Kishan",
+    start_date: '27/12/2020',
+    end_date: "12/11/2028",
+    budget: 200,
+    railway_station: "Rampur Junction",
+    site_address: "#25 Rampur UP",
+  },
+  {
+    id: 2234002,
+    name: "Temple Construction",
+    manager: "Surya Pratap",
+    start_date: "12/09/2022",
+    end_date: "12/09/2028",
+    budget: 220,
+    railway_station: "Agra Cant",
+    site_address: "#29 Sabji Mandi",
+  },
+  {
+    id: 2234003,
+    name: "Bridge Repair",
+    manager: "Mohan Lal",
+    start_date: "25/06/2021",
+    end_date: "27/12/2027",
+    budget: 100,
+    railway_station: "Gwalior Juncion",
+    site_address: "#31 Morar MP",
+  },
+  {
+    id: 2234004,
+    name: "Road Construction",
+    manager: "Dhupchand",
+    start_date: "27/12/2021",
+    end_date: "27/12/2029",
+    budget: 320,
+    railway_station: "Sitapur Junction",
+    site_address: "#37 Sitapur UP",
+  }
+]
