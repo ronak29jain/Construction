@@ -1,0 +1,32 @@
+.dashboard {
+  width: 85vw;
+}
+
+.create-new-project {
+  text-align: right;
+  margin: 3vw;
+  padding-right: 1rem;
+}
+
+.create-new-project button:hover {
+  transform: scale(1.025);
+  transition: 0.25s ease-in-out;
+  box-shadow: 3px 3px 2px 0px rgba(0, 0, 0, 0.4);
+}
+
+.create-new-project button {
+  padding: 0.5rem;
+  border: 1px solid cornflowerblue;
+  border-radius: 0.25rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: azure;
+  cursor: pointer;
+}
+
+.dashboard .projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  /* width: 85vw; */
+}

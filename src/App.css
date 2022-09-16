@@ -1,23 +1,38 @@
 .App {
   display: flex;
   text-align: center;
-  width: 100vw;
+  /* max-width: 100vw; */
+}
+
+.navigation-bar {
+  /* position: fixed; */
+  max-width: 15vw;
+}
+
+.working-space {
+  /* max-width: 85%; */
 }
 
 .navbar {
   display: flex;
   flex-direction: column;
+  /* position: sticky; */
   padding: 1rem;
   /* margin: 2rem auto; */
-  max-width: 15vw;
+  width: 15vw;
+  padding-top: 3rem;
 }
 
 .navbar .link{
-  padding: 1rem;
+  padding: 2rem;
+}
+
+.navbar .link .nav-icon {
+  font-size: 3rem;
 }
 
 .app-outlet {
-  width: 85vw;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -25,6 +40,9 @@
   display: inline-block;
 }
 
+.link {
+  text-decoration: none;
+}
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
