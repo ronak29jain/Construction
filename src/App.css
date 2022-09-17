@@ -11,6 +11,7 @@
 
 .working-space {
   /* max-width: 85%; */
+  margin-bottom: 3rem;
 }
 
 .navbar {
@@ -37,7 +38,10 @@
 }
 
 .project{
-  display: inline-block;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin: 5rem;
 }
 
 .link {

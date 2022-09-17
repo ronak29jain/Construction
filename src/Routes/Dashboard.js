@@ -1,18 +1,23 @@
 import React from 'react'
 import '../Style/Dashboard.css'
 import { Link } from 'react-router-dom';
-import { projectsdata } from '../components/Data';
+// import { projectsdata } from '../components/Data';
 import Container from '../components/Container';
+import CreateNewProjectModal from '../components/CreateNewProjectModal';
+import {connect} from 'react-redux';
+import { openModal } from '../redux/ModalActions'
 
-function Dashboard() {
+
+function Dashboard(props) {
   return (
     <div className='dashboard'>
       <div className='create-new-project'>
-        <button>Create New Project</button>
+        <button onClick={props.openModal} >Create New Project</button>
       </div>
       <div className='projects'>
         {
-          projectsdata.map((projectdata) => {
+          // projectsdata.map((projectdata) => {
+          props.allprojects.map((projectdata) => {
             
             const property = {
               head1: 'Project ID',
@@ -39,8 +44,22 @@ function Dashboard() {
           })
         }
       </div>
+      {props.displayModal && <CreateNewProjectModal /> }
     </div>
   )
 }
 
-export default Dashboard
+const mapStateToProps = state => {
+  return{
+    displayModal: state.displayModal,
+    allprojects: state.allprojects
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return{
+    openModal: () => dispatch(openModal())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)

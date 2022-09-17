@@ -1,15 +1,26 @@
 import React from 'react';
 import { useState } from 'react';
 import LineChart from '../components/LineChart';
-import { projectsdata } from '../components/Data';
+// import { projectsdata } from '../components/Data';
+import { connect } from 'react-redux'
 
-function AllProjectBudgetPlot() {
+function AllProjectBudgetPlot(props) {
 
-  const [data, setData] = useState({
-    labels: projectsdata?.map((projdata) => projdata.id),
+  // const [data, setData] = useState({
+  //   labels: projectsdata?.map((projdata) => projdata.id),
+  //   datasets: [{
+  //     label: 'Project Budget',
+  //     data: projectsdata?.map((projtdata) => projtdata.budget),
+  //     // backgroundColor: ['red'],
+  //     borderColor: 'red',
+  //   }]
+  // })
+  
+  const [data0, setData0] = useState({
+    labels: props.allprojects?.map((projdata) => projdata.id),
     datasets: [{
       label: 'Project Budget',
-      data: projectsdata?.map((projtdata) => projtdata.budget),
+      data: props.allprojects?.map((projtdata) => projtdata.budget),
       // backgroundColor: ['red'],
       borderColor: 'red',
     }]
@@ -18,9 +29,16 @@ function AllProjectBudgetPlot() {
   return (
     <div>
       AllProjectBudgetPlot
-      <LineChart chartdata={data} />
+      {/* <LineChart chartdata={data} /> */}
+      <LineChart chartdata={data0} />
     </div>
   )
 }
 
-export default AllProjectBudgetPlot
+const mapStateToProps = state => {
+  return{
+    allprojects: state.allprojects
+  }
+}
+
+export default connect(mapStateToProps)(AllProjectBudgetPlot)
