@@ -27,8 +27,7 @@ function AllProjectBudgetPlot(props) {
   })
 
   return (
-    <div>
-      AllProjectBudgetPlot
+    <div className='project_budget_plot'>
       {/* <LineChart chartdata={data} /> */}
       <LineChart chartdata={data0} />
     </div>

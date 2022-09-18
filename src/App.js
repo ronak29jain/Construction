@@ -1,12 +1,17 @@
+import { useEffect } from 'react';
 import './App.css';
-import { Provider } from 'react-redux'
-import store from './redux/store';
 import Navbar from './components/Navbar';
 import {Outlet} from 'react-router-dom'
+import {connect} from 'react-redux';
+import { getProjects } from './redux/ModalActions';
 
-function App() {
+function App(props) {
+  
+  useEffect(() => {
+    props.getProjects();
+  }, [])
+
   return (
-    <Provider store={store}>
       <div className="App">
         <div className='navigation-bar'>
           <Navbar />
@@ -15,8 +20,13 @@ function App() {
           <Outlet className='app-outlet'/>
         </div>
       </div>
-    </Provider>
   );
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return{
+    getProjects: () => dispatch(getProjects())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);

@@ -1,5 +1,6 @@
 .dashboard {
   width: 85vw;
+  margin: 0;
 }
 
 .create-new-project {
@@ -25,8 +26,10 @@
 }
 
 .dashboard .projects {
+  padding: 0 5%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 5rem;
+  margin: 5rem;
   /* width: 85vw; */
 }

@@ -1,19 +1,14 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import '../Style/Dashboard.css'
 import { Link } from 'react-router-dom';
 // import { projectsdata } from '../components/Data';
 import Container from '../components/Container';
 import CreateNewProjectModal from '../components/CreateNewProjectModal';
 import {connect} from 'react-redux';
-import { getProjects, openModal } from '../redux/ModalActions'
+import { openModal } from '../redux/ModalActions'
 
 
 function Dashboard(props) {
-
-  useEffect(() => {
-    props.getProjects();
-  }, [])
-
   return (
     <div className='dashboard'>
       <div className='create-new-project'>
@@ -89,8 +84,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return{
-    openModal: () => dispatch(openModal()),
-    getProjects: () => dispatch(getProjects())
+    openModal: () => dispatch(openModal())
   }
 }
 

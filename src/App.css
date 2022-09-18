@@ -1,35 +1,44 @@
 .App {
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 8fr;
   text-align: center;
   /* max-width: 100vw; */
+  position: relative;
 }
 
 .navigation-bar {
   /* position: fixed; */
   max-width: 15vw;
+  margin: 0;
 }
 
 .working-space {
   /* max-width: 85%; */
+  margin: 0;
   margin-bottom: 3rem;
+
 }
 
 .navbar {
   display: flex;
   flex-direction: column;
-  /* position: sticky; */
+  position: fixed;
   padding: 1rem;
   /* margin: 2rem auto; */
   width: 15vw;
   padding-top: 3rem;
+  place-items: center;
 }
 
 .navbar .link{
-  padding: 2rem;
+  margin: 2rem;
+  cursor: auto;
+  width: fit-content;
 }
 
 .navbar .link .nav-icon {
   font-size: 3rem;
+  cursor: pointer;
 }
 
 .app-outlet {
@@ -46,6 +55,10 @@
 
 .link {
   text-decoration: none;
+}
+
+.project_budget_plot {
+  margin-top: 5%;
 }
 
 /* .App-logo {
