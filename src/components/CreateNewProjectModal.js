@@ -5,15 +5,16 @@ import {
   closeModal, 
   createProject, 
   // projectId, 
-  projectName 
+  projectName,
+  addProject
 } from '../redux/ModalActions';
 
 function CreateNewProjectModal(props) {
   
   const [manager, setManager] = useState('');
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
-  const [budget, setBudget] = useState();
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [budget, setBudget] = useState('');
   const [railwayStation, setRailwayStation ] = useState('');
   const [siteAddress, setSiteAddress] = useState('');
   
@@ -29,9 +30,11 @@ function CreateNewProjectModal(props) {
   }
 
   const createNewProject = () => {
-    props.createProject(projectData)
+    props.createProject(projectData);
     // props.projectName('')
     // props.projectId(props.id + 1)
+
+    props.addProject(projectData);
   }
 
   return (
@@ -54,7 +57,7 @@ function CreateNewProjectModal(props) {
           <input type="date" placeholder='Start Date' value={startDate} onChange={(e) => setStartDate(e.target.value)} />
         </div>
         <div className='input-section'>
-          <h3>1End Date: </h3>
+          <h3>End Date: </h3>
           <input type="date" placeholder='End Date' value={endDate} onChange={(e) => setEndDate(e.target.value)} />
         </div>
         <div className='input-section'>
@@ -87,6 +90,7 @@ const mapDispatchToProps = dispatch => {
     closeModal: () => dispatch(closeModal()),
     createProject: projectData => dispatch(createProject(projectData)),
     projectName: name => dispatch(projectName(name)),
+    addProject: projectData => dispatch(addProject(projectData))
     // projectId: id => dispatch(projectId(id)),
   }
 }

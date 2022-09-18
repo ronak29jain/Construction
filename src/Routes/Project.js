@@ -13,7 +13,7 @@ function Project(props) {
   //   return (parseInt(params.projectID) === projectdata.id)
   // })
   
-  const Projdata = props.allprojects.filter(projectdata => {
+  const Projdata = props.projects.filter(projectdata => {
     return (parseInt(params.projectID) === projectdata.id)
   })
 
@@ -66,7 +66,8 @@ function Project(props) {
 
 const mapStateToProps = state => {
   return {
-    allprojects: state.allprojects
+    // allprojects: state.allprojects
+    projects: state.projects
   }
 }
 

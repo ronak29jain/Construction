@@ -1,12 +1,15 @@
-import { CLOSE_MODAL, CREATE_NEW_PROJECT, OPEN_MODAL, PROJECT_ID, PROJECT_NAME } from "./constants";
+import { CLOSE_MODAL, CREATE_NEW_PROJECT, OPEN_MODAL, PROJECT_ID, PROJECT_NAME, SET_PROJECTS, SET_TEST } from "./constants";
 import { projectsdata } from '../components/Data'
 
 const initialState = {
   displayModal: false,
   allprojects: projectsdata,
+  projects: [],
   // project: {a: 'b'},
   name: '',
-  id: 2234005
+  id: 0,
+  test: [],
+  test1: ''
 }
 
 const ModalReducer = (state = initialState, action) => {
@@ -43,6 +46,16 @@ const ModalReducer = (state = initialState, action) => {
       return {
         ...state,
         id: action.payload
+      }
+    case SET_TEST:
+      return {
+        ...state,
+        test: action.payload
+      }
+    case SET_PROJECTS:
+      return {
+        ...state,
+        projects: action.payload
       }
     default: return state
   }

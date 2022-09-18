@@ -1,0 +1,13 @@
+.pdfreport {
+  /* display: flex; */
+}
+
+.pdfreport button {
+  font-size: 1.25rem;
+  padding: 1.2rem 1.5rem;
+  background: lightskyblue;
+  border-radius: .5rem;
+  font-weight: 600;
+  height: fit-content;
+  width: fit-content;
+}

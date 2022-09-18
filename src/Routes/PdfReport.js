@@ -1,6 +1,6 @@
 import React from 'react'
+import '../Style/PdfReport.css'
 import {connect} from 'react-redux';
-import { openModal } from '../redux/ModalActions';
 import jsPDF from 'jspdf'
 
 function PdfReport(props) {
@@ -21,24 +21,26 @@ function PdfReport(props) {
     <div className='pdfreport'>
 
       <div id='project_details' style={{ padding: "2rem" , width: "500px",  }}>
-        <h1>Project Details</h1>
-        <table>
+        <h1 style={{ textAlign: 'center', textDecoration: "underline" }} >Project Details</h1>
+        <table style={{ borderBottom: '2px solid blue', textAlign: 'left' }}>
           <thead>
             <tr>
-              <th>Project ID</th>
-              <th>Project Name</th>
-              <th>Budget (corer)</th>
+              {/* <div> */}
+                <th style={{ padding: "1rem", paddingRight: "2rem", borderBottom: '2px solid blue'}}>Project ID</th>
+                <th style={{ padding: "1rem", paddingRight: "2em", borderBottom: '2px solid blue'}}>Project Name</th>
+                <th style={{ borderBottom: '2px solid blue'}}>Budget <span>&#8377;</span> (corer)</th>
+              {/* </div> */}
             </tr>
           </thead>
           {
-            props.allprojects?.map((projectdata) => {
-              {console.log('projectdata: ', projectdata)}
+            props.projects?.map((projectdata) => {
+              // {console.log('projectdata: ', projectdata)}
               return (
                 <tbody>
                   <tr>
                     {console.log('projectdata.id: ', projectdata.id)}
-                    <td> {projectdata.id} </td>
-                    <td> {projectdata.name} </td>
+                    <td style={{ padding: "1rem", paddingRight: "2rem"}}> {projectdata.id} </td>
+                    <td style={{ padding: "1rem", paddingRight: "2rem"}}> {projectdata.name} </td>
                     <td> {projectdata.budget} </td>
                   </tr>
                 </tbody>
@@ -47,23 +49,16 @@ function PdfReport(props) {
           }
         </table>
       </div>
-
       <button onClick={download}>Genrate PDF</button>
-
     </div>
   )
 }
 
 const mapStateToProps = state => {
   return{
-    allprojects: state.allprojects
+    // allprojects: state.allprojects
+    projects: state.projects
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return{
-    openModal: () => dispatch(openModal())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PdfReport)
+export default connect(mapStateToProps)(PdfReport)

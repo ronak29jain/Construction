@@ -17,10 +17,10 @@ function AllProjectBudgetPlot(props) {
   // })
   
   const [data0, setData0] = useState({
-    labels: props.allprojects?.map((projdata) => projdata.id),
+    labels: props.projects?.map((projdata) => projdata.id),
     datasets: [{
       label: 'Project Budget',
-      data: props.allprojects?.map((projtdata) => projtdata.budget),
+      data: props.projects?.map((projtdata) => projtdata.budget),
       // backgroundColor: ['red'],
       borderColor: 'red',
     }]
@@ -37,7 +37,8 @@ function AllProjectBudgetPlot(props) {
 
 const mapStateToProps = state => {
   return{
-    allprojects: state.allprojects
+    // allprojects: state.allprojects,
+    projects: state.projects,
   }
 }
 
